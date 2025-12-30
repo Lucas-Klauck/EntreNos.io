@@ -1,0 +1,588 @@
+/* Reset e estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Melhorias para toque */
+* {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+textarea, input {
+    -webkit-user-select: text;
+    user-select: text;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg, #f5f5dc 0%, #faebd7 100%);
+    height: 100vh;
+    overflow: hidden;
+    /* Prevenir zoom em mobile */
+    touch-action: manipulation;
+}
+
+/* Container principal */
+.app-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Sidebar lateral esquerda */
+.sidebar {
+    width: 320px;
+    background: linear-gradient(180deg, #f0e6d2 0%, #e8d4b0 100%);
+    padding: 30px 20px;
+    border-right: 1px solid #d4c4a8;
+    overflow-y: auto;
+    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.1);
+    /* Melhorar rolagem */
+    scrollbar-width: thin;
+    scrollbar-color: #d4c4a8 transparent;
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: #d4c4a8;
+    border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background-color: #c4b498;
+}
+
+.sidebar-header {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.sidebar-header h2 {
+    color: #5d4e37;
+    font-size: 1.4rem;
+    font-weight: 300;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Botões de mensagens rápidas */
+.quick-messages {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Separadores de categorias */
+.category-separator {
+    text-align: center;
+    margin: 20px 0 15px 0;
+    position: relative;
+    color: #8b7355;
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+
+.category-separator::before,
+.category-separator::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 30%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #d4c4a8, transparent);
+}
+
+.category-separator::before {
+    left: 0;
+}
+
+.category-separator::after {
+    right: 0;
+}
+
+.message-btn {
+    background: linear-gradient(135deg, #fff8e7 0%, #f5e6d3 100%);
+    border: 1px solid #d4c4a8;
+    border-radius: 25px;
+    padding: 18px 20px; /* Aumentado para melhor toque */
+    font-family: 'Georgia', serif;
+    font-size: 0.95rem;
+    color: #5d4e37;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(93, 78, 55, 0.1);
+    /* Melhorias para toque */
+    min-height: 44px; /* Mínimo recomendado para toque */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.message-btn:hover {
+    background: linear-gradient(135deg, #f5e6d3 0%, #ead4b8 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(93, 78, 55, 0.2);
+}
+
+.message-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 4px rgba(93, 78, 55, 0.2);
+    /* Feedback visual para toque */
+    background: linear-gradient(135deg, #ead4b8 0%, #e0c8a8 100%);
+}
+
+/* Área principal */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 40px;
+    background: linear-gradient(135deg, #faf8f3 0%, #f5f5dc 100%);
+    overflow-y: auto;
+    gap: 30px;
+}
+
+/* Cartão central no estilo cartinha */
+.letter-card {
+    background: linear-gradient(135deg, #ffffff 0%, #fef9f3 100%);
+    border-radius: 20px;
+    padding: 50px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 10px 40px rgba(93, 78, 55, 0.15);
+    border: 1px solid #e8dcc6;
+    position: relative;
+}
+
+.letter-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, #d4c4a8 0%, #e8d4b0 50%, #f0e6d2 100%);
+    border-radius: 20px;
+    z-index: -1;
+    opacity: 0.3;
+}
+
+.card-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.card-header h1 {
+    color: #5d4e37;
+    font-size: 2.2rem;
+    font-weight: 300;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 2px rgba(93, 78, 55, 0.1);
+}
+
+.card-header p {
+    color: #8b7355;
+    font-size: 1.1rem;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+/* Formulário da carta */
+.letter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-group label {
+    color: #5d4e37;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-group textarea {
+    background: linear-gradient(135deg, #fefefe 0%, #f9f6f0 100%);
+    border: 2px solid #e8dcc6;
+    border-radius: 15px;
+    padding: 20px;
+    font-family: 'Georgia', serif;
+    font-size: 1.1rem;
+    color: #5d4e37;
+    resize: vertical;
+    min-height: 150px;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 2px 8px rgba(93, 78, 55, 0.05);
+    /* Melhorias para mobile */
+    font-size: 16px; /* Prevenir zoom em iOS */
+    line-height: 1.5;
+}
+
+.form-group textarea:focus {
+    outline: none;
+    border-color: #d4c4a8;
+    box-shadow: inset 0 2px 8px rgba(93, 78, 55, 0.1), 0 0 0 3px rgba(212, 196, 168, 0.2);
+}
+
+.form-group textarea::placeholder {
+    color: #a09080;
+    font-style: italic;
+    opacity: 0.6;
+}
+
+/* Botão de enviar */
+.send-btn {
+    background: linear-gradient(135deg, #d4c4a8 0%, #c4b5a0 100%);
+    border: none;
+    border-radius: 30px;
+    padding: 20px 40px; /* Aumentado para melhor toque */
+    font-family: 'Georgia', serif;
+    font-size: 1.1rem;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(93, 78, 55, 0.3);
+    align-self: center;
+    min-width: 200px;
+    /* Melhorias para toque */
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.send-btn:hover {
+    background: linear-gradient(135deg, #c4b5a0 0%, #b4a590 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(93, 78, 55, 0.4);
+}
+
+.send-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(93, 78, 55, 0.3);
+    /* Feedback visual para toque */
+    background: linear-gradient(135deg, #b4a590 0%, #a49580 100%);
+}
+
+/* Responsividade - Mobile First */
+@media (max-width: 768px) {
+    .app-container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        height: auto;
+        max-height: 40vh;
+        border-right: none;
+        border-bottom: 1px solid #d4c4a8;
+        padding: 20px 15px;
+    }
+    
+    .main-content {
+        padding: 20px 15px;
+        gap: 20px;
+    }
+    
+    .letter-card {
+        padding: 25px 20px;
+    }
+    
+    .card-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .quick-messages {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    
+    .message-btn {
+        flex: 1 1 calc(50% - 4px);
+        min-width: 120px;
+        padding: 15px 12px;
+        font-size: 0.85rem;
+        min-height: 44px;
+    }
+    
+    .messages-history {
+        padding: 20px 15px;
+        max-height: 300px;
+    }
+    
+    .history-header h3 {
+        font-size: 1.1rem;
+    }
+    
+    .message-item {
+        padding: 12px 15px;
+    }
+    
+    .message-text {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        padding: 15px 10px;
+    }
+    
+    .main-content {
+        padding: 15px 10px;
+    }
+    
+    .letter-card {
+        padding: 20px 15px;
+    }
+    
+    .card-header h1 {
+        font-size: 1.6rem;
+    }
+    
+    .card-header p {
+        font-size: 1rem;
+    }
+    
+    .message-btn {
+        flex: 1 1 100%;
+        padding: 18px 15px;
+        font-size: 0.9rem;
+    }
+    
+    .send-btn {
+        padding: 18px 30px;
+        font-size: 1rem;
+        min-width: 180px;
+    }
+    
+    .form-group textarea {
+        font-size: 16px; /* Prevenir zoom */
+        padding: 15px;
+        min-height: 120px;
+    }
+    
+    .messages-history {
+        padding: 15px 10px;
+        max-height: 250px;
+    }
+    
+    .message-item {
+        padding: 10px 12px;
+    }
+    
+    .message-text {
+        font-size: 0.9rem;
+    }
+    
+    .message-type,
+    .message-time {
+        font-size: 0.75rem;
+    }
+}
+
+/* Histórico de mensagens */
+.messages-history {
+    background: linear-gradient(135deg, #ffffff 0%, #fef9f3 100%);
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 10px 40px rgba(93, 78, 55, 0.15);
+    border: 1px solid #e8dcc6;
+    max-height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e8dcc6;
+}
+
+.history-header h3 {
+    color: #5d4e37;
+    font-size: 1.3rem;
+    font-weight: 300;
+    margin: 0;
+}
+
+.history-count {
+    color: #8b7355;
+    font-size: 0.9rem;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.messages-list {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.empty-history {
+    text-align: center;
+    padding: 40px 20px;
+    color: #8b7355;
+    font-style: italic;
+    opacity: 0.6;
+}
+
+.message-item {
+    background: linear-gradient(135deg, #f9f6f0 0%, #f5f5dc 100%);
+    border-radius: 15px;
+    padding: 15px 20px;
+    border-left: 4px solid #d4c4a8;
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.5s ease;
+}
+
+.message-item.new-message {
+    border-left-color: #e8b4b8;
+    background: linear-gradient(135deg, #fef5f6 0%, #fdeef0 100%);
+}
+
+.message-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 2px 10px rgba(93, 78, 55, 0.1);
+}
+
+.message-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.message-type {
+    font-size: 0.8rem;
+    color: #8b7355;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.message-time {
+    font-size: 0.8rem;
+    color: #a09080;
+    font-style: italic;
+}
+
+.message-text {
+    color: #5d4e37;
+    font-size: 1rem;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.message-sender {
+    font-size: 0.8rem;
+    color: #d4c4a8;
+    margin-top: 8px;
+    font-style: italic;
+}
+
+/* Aviso de novas mensagens */
+.new-message-alert {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #e8b4b8 0%, #d49096 100%);
+    color: #ffffff;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-family: 'Georgia', serif;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 15px rgba(93, 78, 55, 0.3);
+    z-index: 1000;
+    opacity: 0;
+    transition: all 0.5s ease;
+    text-align: center;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.new-message-alert.show {
+    opacity: 1;
+    animation: gentlePulse 2s ease-in-out;
+}
+
+/* Animações */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes gentlePulse {
+    0%, 100% {
+        transform: translateX(-50%) scale(1);
+    }
+    50% {
+        transform: translateX(-50%) scale(1.02);
+    }
+}
+
+/* Scrollbar personalizada para o histórico */
+.messages-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.messages-list::-webkit-scrollbar-track {
+    background: #f5f5dc;
+    border-radius: 3px;
+}
+
+.messages-list::-webkit-scrollbar-thumb {
+    background: #d4c4a8;
+    border-radius: 3px;
+}
+
+.messages-list::-webkit-scrollbar-thumb:hover {
+    background: #c4b5a0;
+}

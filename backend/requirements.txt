@@ -1,0 +1,25 @@
+# Backend opcional para EntreNos
+# Este backend é OPCIONAL - o frontend funciona 100% sem ele
+
+# Framework web principal
+Flask==2.3.3
+
+# Suporte a CORS para comunicação com frontend
+Flask-CORS==4.0.0
+
+# Firebase Admin SDK para push notifications
+firebase-admin==6.2.0
+
+# Variáveis de ambiente (opcional, para produção)
+python-dotenv==1.0.0
+
+# Logging aprimorado (opcional)
+colorlog==6.7.0
+
+# Para futuras implementações:
+# requests==2.31.0          # Para integrações com APIs externas
+# celery==5.3.1            # Para tarefas assíncronas (notificações)
+# redis==4.6.0             # Cache e filas de mensagens
+# nltk==3.8.1              # Processamento de linguagem natural
+# textblob==0.17.1         # Análise de sentimentos
+# apscheduler==3.10.4      # Agendamento de tarefas

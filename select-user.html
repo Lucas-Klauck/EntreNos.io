@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EntreNos - Escolha seu perfil</title>
+    <!-- PWA Links -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#d8cfc4">
+    <link rel="stylesheet" href="select-user.css">
+</head>
+<body>
+    <div class="selection-container">
+        <header class="selection-header">
+            <h1>EntreNos</h1>
+            <p>Escolha seu perfil para entrar</p>
+        </header>
+        
+        <main class="users-container">
+            <div class="user-card" data-user="usu-Lucas" data-name="Lucas">
+                <div class="avatar-container">
+                    <img src="./usu-Lucas.jpeg" alt="Lucas" class="user-avatar">
+                </div>
+                <h2 class="user-name">Lucas</h2>
+                <div class="selection-status"></div>
+            </div>
+            
+            <div class="user-card" data-user="usu-Emilly" data-name="Emilly">
+                <div class="avatar-container">
+                    <img src="./usu-Emilly.jpeg" alt="Emilly" class="user-avatar">
+                </div>
+                <h2 class="user-name">Emilly</h2>
+                <div class="selection-status"></div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="select-user.js"></script>
+</body>
+</html>

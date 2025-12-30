@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EntreNos - Cartas de Amor</title>
+    <!-- PWA Links -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#d8cfc4">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar lateral esquerda -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Mensagens Rápidas</h2>
+            </div>
+            <div class="quick-messages">
+                <!-- Mensagens existentes -->
+                <button class="message-btn" onclick="enviarMensagemRapida('Estou pensando em você')">
+                    Estou pensando em você
+                </button>
+                <button class="message-btn" onclick="enviarMensagemRapida('Saudades')">
+                    Saudades
+                </button>
+                <button class="message-btn" onclick="enviarMensagemRapida('I love you')">
+                    I love you
+                </button>
+                <button class="message-btn" onclick="enviarMensagemRapida('Você me veio à mente')">
+                    Você me veio à mente
+                </button>
+                <button class="message-btn" onclick="enviarMensagemRapida('Tenho saudade de você')">
+                    Tenho saudade de você
+                </button>
+                <button class="message-btn" onclick="enviarMensagemRapida('Espero que você esteja bem')">
+                    Espero que você esteja bem
+                </button>
+                <button class="message-btn" onclick="enviarMensagemRapida('Você torna meu dia melhor')">
+                    Você torna meu dia melhor
+                </button>
+                <button class="message-btn" onclick="enviarMensagemRapida('Não consigo parar de pensar em você')">
+                    Não consigo parar de pensar em você
+                </button>
+                
+                <!-- Dia a dia -->
+                <div class="category-separator">🕰️ Dia a dia</div>
+                <button class="message-btn" onclick="enviarMensagemRapida('Chegou bem?')">
+                    Chegou bem?
+                </button>
+                <button class="message-btn" onclick="enviarMensagemRapida('Comeu direitinho?')">
+                    Comeu direitinho?
+                </button>
+                <button class="message-btn" onclick="enviarMensagemRapida('Descansa um pouco')">
+                    Descansa um pouco
+                </button>
+                <button class="message-btn" onclick="enviarMensagemRapida('Bebe água 💧')">
+                    Bebe água 💧
+                </button>
+                <button class="message-btn" onclick="enviarMensagemRapida('Boa sorte hoje')">
+                    Boa sorte hoje
+                </button>
+                <button class="message-btn" onclick="enviarMensagemRapida('Tô aqui')">
+                    Tô aqui
+                </button>
+                <button class="message-btn" onclick="enviarMensagemRapida('Vai dar tudo certo')">
+                    Vai dar tudo certo
+                </button>
+                <button class="message-btn" onclick="enviarMensagemRapida('Como você tá se sentindo agora?')">
+                    Como você tá se sentindo agora?
+                </button>
+                
+                <!-- Carinho & elogios -->
+                <div class="category-separator">💖 Carinho & elogios</div>
+                <button class="message-btn" onclick="enviarMensagemRapida('Tenho muito orgulho de você')">
+                    Tenho muito orgulho de você
+                </button>
+                <button class="message-btn" onclick="enviarMensagemRapida('Você é incrível')">
+                    Você é incrível
+                </button>
+                <button class="message-btn" onclick="enviarMensagemRapida('Você é meu lugar seguro')">
+                    Você é meu lugar seguro
+                </button>
+                <button class="message-btn" onclick="enviarMensagemRapida('Seu sorriso é tudo')">
+                    Seu sorriso é tudo
+                </button>
+                <button class="message-btn" onclick="enviarMensagemRapida('Você faz meu dia melhor')">
+                    Você faz meu dia melhor
+                </button>
+                <button class="message-btn" onclick="enviarMensagemRapida('Você é especial pra mim')">
+                    Você é especial pra mim
+                </button>
+                <button class="message-btn" onclick="enviarMensagemRapida('Te admiro muito')">
+                    Te admiro muito
+                </button>
+                <button class="message-btn" onclick="enviarMensagemRapida('Você é mais forte do que imagina')">
+                    Você é mais forte do que imagina
+                </button>
+                
+                <!-- Conexão -->
+                <div class="category-separator">🫂 Conexão</div>
+                <button class="message-btn" onclick="enviarMensagemRapida('Abraço apertado 🫂')">
+                    Abraço apertado 🫂
+                </button>
+                <button class="message-btn" onclick="enviarMensagemRapida('Tô pensando em você agora')">
+                    Tô pensando em você agora
+                </button>
+                <button class="message-btn" onclick="enviarMensagemRapida('Queria estar aí')">
+                    Queria estar aí
+                </button>
+                <button class="message-btn" onclick="enviarMensagemRapida('Sinto sua falta')">
+                    Sinto sua falta
+                </button>
+                <button class="message-btn" onclick="enviarMensagemRapida('Tô contigo, sempre')">
+                    Tô contigo, sempre
+                </button>
+                <button class="message-btn" onclick="enviarMensagemRapida('Não solta minha mão')">
+                    Não solta minha mão
+                </button>
+            </div>
+        </aside>
+
+        <!-- Área principal -->
+        <main class="main-content">
+            <div class="letter-card">
+                <header class="card-header">
+                    <h1>Escreva sua carta</h1>
+                    <p>Envie uma mensagem especial para quem você ama</p>
+                </header>
+                
+                <div class="letter-form">
+                    <div class="form-group">
+                        <label for="message">Sua mensagem:</label>
+                        <textarea 
+                            id="message" 
+                            name="message" 
+                            placeholder="Digite aqui sua mensagem pessoal..."
+                            rows="8"
+                        ></textarea>
+                    </div>
+                    
+                    <button class="send-btn" onclick="enviarCarta()">
+                        Enviar carta
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Histórico de mensagens -->
+            <div class="messages-history">
+                <div class="history-header">
+                    <h3>Nossas mensagens</h3>
+                    <span class="history-count">0 mensagens</span>
+                </div>
+                <div class="messages-list" id="messagesList">
+                    <div class="empty-history">
+                        <p>Ainda não há mensagens. Envie a primeira carta! 💌</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Firebase v9 modular SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-messaging-compat.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "EntreNós",
+  "short_name": "EntreNós",
+  "start_url": "./select-user.html",
+  "display": "standalone",
+  "background_color": "#f3efe7",
+  "theme_color": "#d8cfc4",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "usu-Lucas.jpeg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "usu-Emilly.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
